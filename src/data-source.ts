@@ -1,5 +1,6 @@
-import { DataSource } from "typeorm";
-import "dotenv/config";
+const { DataSource } = require("typeorm");
+const dotenv = require ("dotenv");
+dotenv.config();
 
 const AppDataSource = new DataSource({
         type: "postgres",
@@ -14,13 +15,5 @@ const AppDataSource = new DataSource({
         migrations: ["src/migrations/*.ts"],
       }
 );
-
-// AppDataSource.initialize()
-//   .then(() => {
-//     console.log("Database connected");
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
 
 export default AppDataSource;

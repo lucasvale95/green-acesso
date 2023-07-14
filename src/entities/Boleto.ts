@@ -22,6 +22,6 @@ export class Boleto {
     @Column()
     ativo: boolean
 
-    @Column({ type: "timestamp"})
+    @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     criado_em: Date
 }

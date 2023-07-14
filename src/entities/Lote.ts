@@ -13,7 +13,10 @@ export class Lote {
     @Column()
     ativo: boolean
 
-    @Column({ type: "timestamp"})
+    @Column()
+    nome_lote: number
+
+    @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
     criado_em: Date
 
     @OneToMany(() => Boleto, boleto => boleto.lote)
