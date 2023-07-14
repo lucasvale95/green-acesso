@@ -57,7 +57,7 @@ const obterBoletoController = async (req: Request, res: Response) => {
 
     const boletos = await obterBoletoService(query);
 
-    if (boletos.length === 0) {
+    if (boletos?.length === 0 || boletos == null) {
       return res.status(200).json({ message: 'Nenhum boleto encontrado com base nos critérios de consulta' });
     }
 

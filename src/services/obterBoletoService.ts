@@ -60,19 +60,19 @@ const obterBoletoPDFService = async (
         return base64Data
 
     } else {
-        let filters:Boleto[] | null = null;
+        let filters:Boleto[] | null = boletos;
 
         // Aplicando filtros de rota
 
         if (nome) filters = boletos.filter(boleto => boleto.nome_sacado.includes(nome));
         if (valor_inicial) filters = filters?.filter(boleto => boleto.valor >= Number(valor_inicial));
         if (valor_final) filters = filters?.filter(boleto => boleto.valor <= Number(valor_final));
-        if (id_lote) filters = filters?.filter(boleto => boleto.id == Number(id_lote));
+        if (id_lote) filters = filters?.filter(boleto => boleto.lote.id == id_lote);
 
-        if (filters?.length > 0 || !null) {
-            return filters;
+        if (null || filters?.length == 0 ) {
+            return null;
         } else {
-            return null
+            return filters
         }   
     }
       
