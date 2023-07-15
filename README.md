@@ -114,5 +114,7 @@ Exemplo de retorno:
 	"message": "Arquivo PDF processado com sucesso"
 }
 ```
+Obs: Arquivos ordenados e realocados em Desktop/Boletos-Green.
+
 
 
